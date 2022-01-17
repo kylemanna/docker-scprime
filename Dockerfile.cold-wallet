@@ -1,0 +1,17 @@
+FROM ubuntu:latest
+
+ENV VER=0.2-linux-amd64
+
+RUN apt update && \
+    apt install -y libarchive-tools curl && \
+    curl -L https://releases.scpri.me/scprime-coldstorage/scprime-cold-storage-$VER.zip | bsdtar -C /opt -xf - && \
+    ln -s /opt/scprime* /opt/scprime && \
+    chmod +x /opt/scprime-cold-storage-$VER/scprime-cold-storage && \
+    ln -s /opt/scprime/scprime-cold-storage /usr/local/bin && \
+    apt purge -y libarchive-tools curl && \
+    apt clean && \
+    rm -rf /var/lib/apt
+
+USER nobody:nogroup
+
+CMD ["scprime-cold-storage"]
