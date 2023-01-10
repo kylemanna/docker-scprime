@@ -3,8 +3,8 @@ LABEL maintainer="Kyle Manna <kyle@kylemanna.com>"
 
 EXPOSE 4282 4285
 
-ARG VERSION=1.6.6
-ARG SHA256SUM=3a68a87025ccb7362d011fd8b3929b9a1d95b5b05e543f7556326c9258bdbd55
+ARG VERSION=1.7.0
+ARG SHA256SUM=a4228d1e2818ab23cf02f9a038bcffe4f19bbd322a8f8fd3e7a7a76210e6a313
 
 RUN wget -O /tmp/pkg.zip https://releases.scpri.me/${VERSION}/ScPrime-v${VERSION}-linux-amd64.zip && \
     sha256sum -c <(echo "${SHA256SUM}  /tmp/pkg.zip") && \
